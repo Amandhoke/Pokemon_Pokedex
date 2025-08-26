@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Pokédex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">🔴 Pokédex</div>
+            <nav class="nav-links">
+                <a href="#" class="nav-link" onclick="showAllPokemon()">All</a>
+                <a href="#" class="nav-link" onclick="showFavorites()">Favorites</a>
+                <a href="#" class="nav-link" onclick="showStats()">Stats</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="search-section">
+            <h1 class="search-title">Discover Pokémon</h1>
+            <div class="search-container">
+                <input
+                    type="text"
+                    class="search-input"
+                    id="searchInput"
+                    placeholder="Search for your favorite Pokémon..."
+                >
+                <button class="search-btn" onclick="searchPokemon()" aria-label="Search Pokémon">🔍</button>
+            </div>
+        </section>
+
+        <section class="filter-section">
+            <button class="filter-btn active" onclick="filterByType('all')">All Types</button>
+            <button class="filter-btn" onclick="filterByType('fire')">🔥 Fire</button>
+            <button class="filter-btn" onclick="filterByType('water')">💧 Water</button>
+            <button class="filter-btn" onclick="filterByType('grass')">🌱 Grass</button>
+            <button class="filter-btn" onclick="filterByType('electric')">⚡ Electric</button>
+            <button class="filter-btn" onclick="filterByType('psychic')">🔮 Psychic</button>
+            <button class="filter-btn" onclick="filterByType('ice')">❄️ Ice</button>
+            <button class="filter-btn" onclick="filterByType('dragon')">🐲 Dragon</button>
+        </section>
+
+        <div class="loading" id="loadingIndicator">
+            <div class="spinner"></div>
+            <p>Loading first batch of Pokémon...</p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">More Pokémon will appear as they load in the background!</p>
+        </div>
+
+        <section class="pokemon-grid" id="pokemonGrid"></section>
+
+        <div class="pagination" id="pagination">
+            <button class="page-btn" id="prevBtn" onclick="previousPage()">← Previous</button>
+            <span class="page-btn" id="pageInfo">Page 1</span>
+            <button class="page-btn" id="nextBtn" onclick="nextPage()">Next →</button>
+        </div>
+    </main>
+
+    <div id="pokemonModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
